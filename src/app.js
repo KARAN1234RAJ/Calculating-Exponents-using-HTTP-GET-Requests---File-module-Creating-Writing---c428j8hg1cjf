@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
           res.writeHead(404, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ error: 'The operation cannot be performed' }));
         } else if (value2 < 0) {
-          res.writeHead(400, { 'Content-Type': 'application/json' });
+          res.writeHead(404, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ error: 'The operation cannot be performed' }));
         } else {
           let result = Math.pow(value1, value2);
