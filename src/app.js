@@ -15,19 +15,19 @@ const server = http.createServer((req, res) => {
         const value2 = obj.num2;
 
         if (value1 <= 0) {
-          res.writeHead(404, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ error: 'The operation cannot be performed' }));
+          res.writeHead(404, { 'Content-Type': 'text/plain' });
+          res.end('The operation cannot be performed' );
         } else if (value2 < 0) {
-          res.writeHead(404, { 'Content-Type': 'application/json' });
-          res.end(JSON.stringify({ error: 'The operation cannot be performed' }));
+          res.writeHead(400, { 'Content-Type': 'text/plain' });
+          res.end('The operation cannot be performed' );
         } else {
           let result = Math.pow(value1, value2);
           res.writeHead(200, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ result: result }));
         }
       } catch (error) {
-        res.writeHead(400, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ error: 'Invalid JSON' }));
+        res.writeHead(400, { 'Content-Type': 'text/plain' });
+        res.end( 'Invalid JSON');
       }
     });
   } else {
